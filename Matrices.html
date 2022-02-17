@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="Style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solving matrices</title>
+</head>
+<body>
+  <div class="navbar">
+    <a href="Home.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">More 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="calculator.html">Calculator</a>
+        <a href="intrest.html">Intrest</a>
+        <a href="quads.html">Quads</a>
+        <a href="Matrices.html">Matrices</a>
+      </div>
+    </div> 
+  </div>
+    <div class="container">
+        <div class="well">
+            <span id="span">Matrix 1 = </span><input type="text" name="field" maxlength="3" size="5" id="field"/>
+            <input type="text" name="field1" maxlength="3" size="5" id="field1"/> 
+            <input type="text" name="field2" maxlength="3" size="5" id="field2"/>
+            <input type="text" name="field3" maxlength="3" size="5" id="field3"/>
+            <br>
+            <span id="span">Matrix 2 = </span><input type="text" name="field4" maxlength="3" size="5" id="field4"/>
+            <input type="text" name="field5" maxlength="3" size="5" id="field5"/>
+            <input type="text" name="field6" maxlength="3" size="5" id="field6"/>
+            <input type="text" name="field7" maxlength="3" size="5" id="field7"/>
+            <br>
+            <br>
+            <select id="opList" onchange="getComboA(this)">
+              <option value="SEL">plz select an option</option>
+              <option value="Add">Add</option>
+              <option value="Subtract">Subtract</option>
+              <option value="Multiply">Multiply</option>
+           </select>
+           <br>
+            <input type="button" value="ans" name="ans" class="btn" onclick="getAnswer()" id="button"/>
+            <br>
+            <br>
+          <div id="resultField"></div>
+          <div id="resultField1"></div>
+          <div id="resultField2"></div>
+          <div id="resultField3"></div>
+        </div>
+      </div>
+      <script>
+        function getAnswer(){
+          field = parseInt(document.getElementById("field").value);
+          field1 = parseInt(document.getElementById("field1").value);
+          field2 = parseInt(document.getElementById("field2").value);
+          field3 = parseInt(document.getElementById("field3").value);
+          field4 = parseInt(document.getElementById("field4").value);
+          field5 = parseInt(document.getElementById("field5").value);
+          field6 = parseInt(document.getElementById("field6").value);
+          field7 = parseInt(document.getElementById("field7").value);
+
+          var selectValue = document.getElementById("opList");
+      console.log(selectValue.value)
+
+          switch (selectValue.value) {
+            case "Add":
+            resultField = parseInt(field + field4);
+          document.getElementById("resultField").innerHTML = resultField;
+          resultField1 = parseInt(field1 + field5);
+          document.getElementById("resultField1").innerHTML = resultField1;
+          resultField2 = parseInt(field2 + field6);
+          document.getElementById("resultField2").innerHTML = resultField2;
+          resultField3 = parseInt(field3 + field7);
+          document.getElementById("resultField3").innerHTML = resultField3;
+              break;
+
+              case "Subtract":
+            resultField = parseInt(field - field4);
+          document.getElementById("resultField").innerHTML = resultField;
+          resultField1 = parseInt(field1 - field5);
+          document.getElementById("resultField1").innerHTML = resultField1;
+          resultField2 = parseInt(field2 - field6);
+          document.getElementById("resultField2").innerHTML = resultField2;
+          resultField3 = parseInt(field3 - field7);
+          document.getElementById("resultField3").innerHTML = resultField3;
+              break;
+
+              case "Multiply":
+            resultField = parseInt(field * field4);
+          document.getElementById("resultField").innerHTML = resultField;
+          resultField1 = parseInt(field1 * field5);
+          document.getElementById("resultField1").innerHTML = resultField1;
+          resultField2 = parseInt(field2 * field6);
+          document.getElementById("resultField2").innerHTML = resultField2;
+          resultField3 = parseInt(field3 * field7);
+          document.getElementById("resultField3").innerHTML = resultField3;
+              break;
+
+              case "SEL":
+            resultField = "bruh pick something";
+          document.getElementById("resultField").innerHTML = resultField;
+          resultField1 = "bruh pick something"
+          document.getElementById("resultField1").innerHTML = resultField1;
+          resultField2 = "bruh pick something"
+          document.getElementById("resultField2").innerHTML = resultField2;
+          resultField3 = "bruh pick something"
+          document.getElementById("resultField3").innerHTML = resultField3;
+              break;
+
+            default:
+              break;
+          }
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="Style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quads</title>
+</head>
+<body>
+  <div class="navbar">
+    <a href="Home.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">More 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="calculator.html">Calculator</a>
+        <a href="intrest.html">Intrest</a>
+        <a href="quads.html">Quads</a>
+        <a href="Matrices.html">Matrices</a>
+      </div>
+    </div> 
+  </div>
+    <span id="tex">ax^2 ± bx ± c = 0</span><br><br>
+    <span id="tex">a = </span><input type="number" name="a" id="a"><br><br>
+    <span id="tex">b = </span><input type="number" name="b" id="b"><br><br>
+    <span id="tex">c = </span><input type="number" name="c" id="c"><br><br>
+    <input type="button" id="button" value="=" onclick="handleClick()"><br> <br>
+    <span id="result">Result</span>
+    <script>
+        function handleClick() {
+        a = parseInt(document.getElementById("a").value);
+        b = parseInt(document.getElementById("b").value);
+        c = parseInt(document.getElementById("c").value);
+
+        let root1, root2;
+        let discriminant = b * b - 4 * a * c;
+        
+        if (discriminant > 0) {
+            root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            result = ("The roots of quadratic equation are "+ root1+"and"+ root2);
+            document.getElementById("result").innerHTML = result;
+            console.log("test");
+        }
+        else if (discriminant == 0) {
+            root1 = root2 = -b / (2 * a);
+            result = ("The roots of quadratic equation are" + root1+" and"+ root2);
+            document.getElementById("result").innerHTML = result;
+        }
+        else {
+            let realPart = parseInt((-b / (2 * a)).toFixed(1));
+            let imagPart = parseInt((Math.sqrt(-discriminant) / (2 * a)).toFixed(1));
+            let part = realPart + imagPart;
+            result = "The roots of quadratic equation are " + part +" and " + (realPart - imagPart);
+            document.getElementById("result").innerHTML = result;
+        }}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="Style.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intrest</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="Home.html">Home</a>
+        <div class="dropdown">
+          <button class="dropbtn">More 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="calculator.html">Calculator</a>
+            <a href="intrest.html">Intrest</a>
+            <a href="quads.html">Quads</a>
+            <a href="Matrices.html">Matrices</a>
+          </div>
+        </div> 
+      </div><br>
+<form>
+    <input type="number" id="firstNum">
+    <select id="opList">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" id="secondNum">
+   <input type="button" id="button" value="=" onclick="handleClick()">
+   <span id="result">Result</span>
+</form>
+<script>
+   var firstNum;
+   var secondNum;
+
+   function handleClick(e) {
+      firstNum = parseInt(document.getElementById("firstNum").value);
+      secondNum = parseInt(document.getElementById("secondNum").value);
+
+      var selectValue = document.getElementById("opList");
+      console.log(selectValue.value)
+
+      switch (selectValue.value) {
+        case "+":
+            result = parseInt(firstNum + secondNum);
+            document.getElementById("result").innerHTML = result;
+            break;
+
+        case "-":
+            result = parseInt(firstNum - secondNum);
+            document.getElementById("result").innerHTML = result;
+            break;
+
+        case "*":
+            result = parseInt(firstNum * secondNum);
+            document.getElementById("result").innerHTML = result;
+            break;
+
+        case "/":
+            result = parseInt(firstNum / secondNum);
+            document.getElementById("result").innerHTML = result;
+            break;
+
+         default:
+            result = "Error"
+            break;
+      }
+   }
+   function init() {
+      button = document.getElementById("button");
+      button.onclick = handleClick();
+   }
+</script>
+</body>
+</html>

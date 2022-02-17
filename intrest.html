@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="Style.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intrest</title>
+</head>
+
+<body>
+   <div class="navbar">
+      <a href="Home.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">More 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="calculator.html">Calculator</a>
+          <a href="intrest.html">Intrest</a>
+          <a href="quads.html">Quads</a>
+          <a href="Matrices.html">Matrices</a>
+        </div>
+      </div> 
+    </div>
+<form>
+   <span id="amo"> Amount: </span> <input type="number" id="Amount">
+   <br>
+   <br>
+   <span id="rat"> Rate: </span> <input type="number" id="Rate">
+   <br>
+   <br>
+   <span id="tea"> Time: </span> <input type="number" id="Time" selected="Simple">
+   <br>
+   <br>
+   <select id="opList" onchange="getComboA(this)">
+      <option value="SEL">plz select an option</option>
+      <option value="Simple">Simple Intrest</option>
+      <option value="Compound">Compound Intrest</option>
+   </select>
+   <br>
+   <br>
+   <input type="button" id="button" value ="=" onclick="handleClick()"><br> <br>
+   <span id="result">Result</span>
+</form>
+<script>
+   var Amount;
+   var Rate;
+   var Time;
+
+   function handleClick(e) {
+      Amount = parseInt(document.getElementById("Amount").value);
+      Rate = parseInt(document.getElementById("Rate").value);
+      Time = parseInt(document.getElementById("Time").value);
+
+      var selectValue = document.getElementById("opList");
+      console.log(selectValue.value)
+
+      switch (selectValue.value) {
+         case "Simple":
+            result = parseInt(Amount * Rate * Time);
+            document.getElementById("result").innerHTML = result;
+            break;
+
+         case "Compound":
+            result = parseFloat(Amount * Rate / 100 + Amount);
+            document.getElementById("result").innerHTML = result;
+            break;
+
+         case "SEL":
+            result = "Error"
+            document.getElementById("result").innerHTML = result;
+            break;
+
+         default:
+            result = "Error"
+            break;
+      }
+   }
+   function init() {
+      button = document.getElementById("button");
+      button.onclick = handleClick();
+   }
+   function getComboA(e) {
+      var value = e.value;
+      var time = document.getElementById("Time");
+      var Tea = document.getElementById("tea");
+      if(value == "Simple"){
+         time.style.visibility = "visible";
+         Tea.style.visibility = "visible";
+      }
+      console.log(value);
+      if(value == "Compound"){
+         time.style.visibility = "hidden";
+         Tea.style.visibility = "hidden";
+      } 
+   }
+</script>
+</body>
+</html>
